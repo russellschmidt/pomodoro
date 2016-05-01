@@ -3,7 +3,7 @@
     
     // disable hash-bang mode on URLs, and disable a common $location error
     $locationProvider
-      .html5mode({
+      .html5Mode({
         enabled: true,
         requireBase: false
     });
