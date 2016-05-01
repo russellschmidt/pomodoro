@@ -1,2 +1,14 @@
-<h1>HELLO WORLD</h1>
-<a ui-sref="tomato">Tomato?</a>
+<div ng-show="true">
+  <h1 class="hero-title">{{ landing.heroTitle }}</h1>
+  <p>{{ "25:00" }}</p>
+  <button ng-click="startWorkTimer()">{{ "start work" }}</button>
+</div>
+
+<div ng-show="false">
+  <p>{{ "5:00" }}</p>
+  <button ng-click="startBreakTimer()">{{ "start break" }}</button>
+</div>
+
+<div>
+  <a ui-sref="tomato">Tomato</a>
+</div>
