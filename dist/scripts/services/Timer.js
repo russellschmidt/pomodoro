@@ -22,7 +22,7 @@
  *  @type {String}
  */
     Timer.buttonLabel = "Start Task";
-
+    Timer.breakLabel = "Begin Break";
 
 /**
  *  @desc time in seconds remaining

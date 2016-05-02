@@ -1,14 +1,14 @@
-<div ng-show="true">
-  <h1 class="hero-title">{{ landing.heroTitle }}</h1>
-  <p>{{ landing.timer.remainingTime | timecode }}</p>
-  <button ng-click="landing.timer.startTimer(landing.timer.WORKTIME)">{{ landing.timer.buttonLabel }}</button>
-</div>
+<nav>
+  <div>
+    <a ui-sref="tomato">Tomato</a>
+  </div>
+</nav>
 
-<div ng-show="false">
-  <p>{{ landing.timer.remainingTime | timecode }}</p>
-  <button ng-click="landing.timer.startTimer(landing.timer.BREAKTIME)">{{ "start break" }}</button>
+<div>
+  <h1>{{ landing.heroTitle }}</h1>
 </div>
 
 <div>
-  <a ui-sref="tomato">Tomato</a>
+  <timer-button></timer-button>
 </div>
+
