@@ -31,7 +31,7 @@
         scope.sessionCounter = 0;
         var resetCount = 0;
         
-        scope.tomatoPic = "./assets/images/tomato-happy.gif";
+        scope.tomato = "/app/assets/images/tomato-happy.gif";
         
         scope.remainingTime = scope.WORKTIME;        
         scope.buttonLabel = taskLabel;
@@ -39,14 +39,13 @@
         var decrementTime = function() {
           scope.remainingTime--;
           if (scope.remainingTime === 0) {
-            scope.onBreak ? resetTimer() : startBreak();
+            if (scope.onLongBreak) {
+              scope.onLongBreak === false;
+              resetTimer();
+            } else {
+              scope.onBreak ? resetTimer() : startBreak();
+            }
           }
-        };
-        
-        var startBreak = function() {
-          scope.onBreak = true;
-          scope.buttonLabel = breakLabel;
-          scope.remainingTime = scope.BREAKTIME;
         };
       
         var resetTimer = function(stop) {
@@ -85,6 +84,7 @@
           scope.buttonLabel = longBreakLabel;
           scope.remainingTime = scope.LONGBREAKTIME;
           scope.onLongBreak = true;
+          scope.onBreak = false;
         };
         
         scope.startTimer = function(time) {
