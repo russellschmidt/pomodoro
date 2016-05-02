@@ -11,10 +11,12 @@
     $stateProvider
       .state('landing', {
         url: '/',
-      templateUrl: '/templates/landing.html'
+        controller: 'LandingCtrl as landing',
+        templateUrl: '/templates/landing.html'
       })
       .state('tomato', {
         url: '/tomato',
+        controller: 'TomatoCtrl as tomato',
         templateUrl: 'templates/tomato.html'
       });
   }

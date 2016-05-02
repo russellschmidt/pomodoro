@@ -1,0 +1,58 @@
+body {
+  font-family: monospace;
+}
+
+nav {
+  display: inline-flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+nav div {
+  margin: 0;
+  padding: 0;
+}
+
+nav div a {
+  text-decoration: none;
+  color: #000;
+}
+
+nav div a:hover {
+  text-decoration: underline;
+  color: #A0A0A0;
+}
+
+nav div h1 {
+  font-size: 1.5rem;
+}
+
+nav div h1, nav div a {
+  vertical-align: top;
+  margin: 0;
+  padding: 5px;
+}
+
+.timer {
+  position: fixed;
+  margin: 0 auto;
+  top: 40%;
+  text-align: center;
+  width: 100%;
+}
+
+.timer h2 {
+  font-size: 2rem;
+}
+
+.timer button {
+  border: none;
+  color: #fff;
+  background-color: #A0A0A0;
+  border-radius: 0;
+  font-size: 1.2rem;
+  min-width: 12rem;
+  font-family: monospace;
+}
