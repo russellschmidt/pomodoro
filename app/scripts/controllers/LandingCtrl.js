@@ -1,6 +1,9 @@
 (function() {
   function LandingCtrl(Timer) {
     this.heroTitle = "Pomodoro Timer";
+    this.timer = Timer;
+    
+    
   }
   
   angular 
