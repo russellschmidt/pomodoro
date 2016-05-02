@@ -2,7 +2,8 @@
   function Timer($interval) {
     var Timer = {};
    
-      
+    var stopTimer = undefined;  
+    
 /**
  *  @desc time in seconds for working => 25 min * 60 = 1500 sec
  *  @type {Number}
@@ -49,10 +50,14 @@
  * @returns none
  */  
     Timer.startTimer = function(time) {
-      console.log(time);
+      if (Timer.remainingTime != time) {
+        $interval.cancel(stopTimer);
+        stopTimer = undefined;
+      }
+        
       Timer.remainingTime = time;
       Timer.buttonLabel = "Reset Timer";
-      var timeLeft = $interval(decrementRemainingTime, 1000, time);
+      stopTimer = $interval(decrementRemainingTime, 1000, time);
     }
     
     
