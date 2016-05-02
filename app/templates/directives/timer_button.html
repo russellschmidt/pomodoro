@@ -1,6 +1,6 @@
 <div class="timer">
   
-  <div class="work" ng-show="!onBreak">
+  <div class="work" ng-show="!onBreak" ng-hide="onLongBreak">
     <h2>{{ remainingTime | timecode }}</h2>
 
     <button ng-click="startTimer(WORKTIME)">{{ buttonLabel }}</button>
@@ -12,4 +12,16 @@
     <button ng-click="startTimer(BREAKTIME)">{{ buttonLabel }}</button>
   </div>
   
+  <div class="longbreak" ng-show="onLongBreak">
+    <h2>{{ remainingTime | timecode }}</h2>
+
+    <button ng-click="startTimer(LONGBREAKTIME)">{{ buttonLabel }}</button>
+  </div>
+  
+  <div class="reset">
+    <!-- image of a tomato -->
+    <!-- one per work+break sesh done so you know how close you are to a long break -->
+    <img ng-src="{{tomato}}" alt="Happy bouncing tomato"/>
+  </div>
+
 </div>
