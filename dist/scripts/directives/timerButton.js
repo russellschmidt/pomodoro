@@ -13,8 +13,9 @@
         var breakLabel = "Begin Break";
         var resetLabel = "Reset Counter";
         
+        scope.onBreak = false;
         
-        scope.WORKTIME = 10;
+        scope.WORKTIME = 2;
         scope.BREAKTIME = 5;
         
         scope.remainingTime = scope.WORKTIME;
@@ -24,7 +25,17 @@
 
         var decrementTime = function() {
           scope.remainingTime--;
+          if (scope.remainingTime === 0) {
+            startBreak();
+          }
         };
+        
+        var startBreak = function() {
+          scope.onBreak = true;
+          scope.buttonLabel = breakLabel;
+          scope.remainingTime = scope.BREAKTIME;
+        };
+        
                 
         scope.startTimer = function(time) {
           if (scope.remainingTime != time && stopTimer != undefined) {
@@ -32,8 +43,9 @@
             stopTimer = undefined;
           }
           scope.remainingTime = time;
-          stopTimer = $interval(decrementTime, 1000, time);
           scope.buttonLabel = resetLabel;
+          stopTimer = $interval(decrementTime, 1000, time);
+          
         };
         
         
