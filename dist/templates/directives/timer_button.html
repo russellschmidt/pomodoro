@@ -1,12 +1,12 @@
 <div class="timer">
   
-  <div class="work" ng-hide="{{ onBreak }}">
+  <div class="work" ng-show="!onBreak">
     <h2>{{ remainingTime | timecode }}</h2>
 
     <button ng-click="startTimer(WORKTIME)">{{ buttonLabel }}</button>
   </div>
   
-  <div class="break" ng-show="{{ onBreak }}">
+  <div class="break" ng-show="onBreak">
     <h2>{{ remainingTime | timecode }}</h2>
 
     <button ng-click="startTimer(BREAKTIME)">{{ buttonLabel }}</button>
