@@ -16,6 +16,7 @@
       })
       .state('tomato', {
         url: '/tomato',
+        controller: 'TomatoCtrl as tomato',
         templateUrl: 'templates/tomato.html'
       });
   }

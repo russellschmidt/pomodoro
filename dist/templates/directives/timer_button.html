@@ -1,7 +1,15 @@
 <div class="timer">
   
-  <h2>{{ remainingTime | timecode }}</h2>
+  <div class="work" ng-show="true">
+    <h2>{{ remainingTime | timecode }}</h2>
+
+    <button ng-click="startTimer(WORKTIME)">{{ buttonLabel }}</button>
+  </div>
   
-  <button ng-click="startTimer(WORKTIME)">{{ buttonLabel }}</button>
+  <div class="break" ng-show="false">
+    <h2>{{ remainingTime | timecode }}</h2>
+
+    <button ng-click="startTimer(BREAKTIME)">{{ buttonLabel }}</button>
+  </div>
   
 </div>
