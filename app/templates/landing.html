@@ -1,11 +1,11 @@
 <div ng-show="true">
   <h1 class="hero-title">{{ landing.heroTitle }}</h1>
-  <p>{{ landing.timer.remainingTime }}</p>
+  <p>{{ landing.timer.remainingTime | timecode }}</p>
   <button ng-click="landing.timer.startTimer(landing.timer.WORKTIME)">{{ landing.timer.buttonLabel }}</button>
 </div>
 
 <div ng-show="false">
-  <p>{{ landing.timer.remainingTime }}</p>
+  <p>{{ landing.timer.remainingTime | timecode }}</p>
   <button ng-click="landing.timer.startTimer(landing.timer.BREAKTIME)">{{ "start break" }}</button>
 </div>
 
