@@ -57,9 +57,11 @@
           scope.sessionCounter++;
           
           if (scope.sessionCounter % 4 == 0) {
+
             scope.onBreak = false;
             startLongBreak();
           } else {
+            scope.sessions.push(i++);
             startTask();
           }
         };
@@ -88,10 +90,15 @@
           scope.onLongBreak = true;
           scope.buttonLabel = longBreakLabel;
           scope.remainingTime = scope.LONGBREAKTIME;
+          scope.sessions.push(i++);
         };
     
         scope.startTimer = function(time) {    
-                    
+          // first time through add in a tomato
+          if (scope.sessionCounter === 0 && !scope.onBreak) {
+            scope.sessions.push(i++);
+          }
+          
           if (scope.remainingTime != time && stopTimer != undefined) {
             stopTimer(stop);
             resetCount++;
