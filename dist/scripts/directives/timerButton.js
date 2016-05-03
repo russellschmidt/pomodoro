@@ -9,8 +9,8 @@
       link: function(scope, element, attributes) {
         
         // Timer constants (in seconds)
-        scope.WORKTIME = 3;
-        scope.BREAKTIME = 2;
+        scope.WORKTIME = 2;
+        scope.BREAKTIME = 1;
         scope.LONGBREAKTIME = 5;
         
         // Return undefined if no timer set
@@ -57,11 +57,9 @@
           scope.sessionCounter++;
           
           if (scope.sessionCounter % 4 == 0) {
-
             scope.onBreak = false;
             startLongBreak();
           } else {
-            scope.sessions.push(i++);
             startTask();
           }
         };
@@ -90,30 +88,35 @@
           scope.onLongBreak = true;
           scope.buttonLabel = longBreakLabel;
           scope.remainingTime = scope.LONGBREAKTIME;
-          scope.sessions.push(i++);
         };
     
-        scope.startTimer = function(time) {    
-          // first time through add in a tomato
-          if (scope.sessionCounter === 0 && !scope.onBreak) {
-            scope.sessions.push(i++);
+        var incrementSession = function() {
+          scope.sessions.push(i++);
+        };
+        
+        var decrementSession = function() {
+          scope.sessions.pop();
+        };
+        
+        scope.startTimer = function(time) {      
+          if (!scope.onBreak & !scope.onLongBreak) {
+            incrementSession();
           }
           
           if (scope.remainingTime != time && stopTimer != undefined) {
             stopTimer(stop);
             resetCount++;
             
+            // make sure we remove a tomato if they reset 
             if (!scope.onBreak) {
-              scope.sessions.pop(i);
+              decrementSession();
             }
           }      
-      
           scope.remainingTime = time;
           scope.buttonLabel = resetLabel;
-          stop = $interval(decrementTime, 1000, time);
           
+          stop = $interval(decrementTime, 1000, time);
         };
-    
       }
     };
   }
