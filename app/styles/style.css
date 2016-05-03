@@ -56,3 +56,13 @@ nav div h1, nav div a {
   min-width: 12rem;
   font-family: monospace;
 }
+
+.reset {
+  margin-top: 3%;
+}
+
+.reset img {
+  /* 361 x 351 */
+  width: 30px;
+  height: 29px;
+}

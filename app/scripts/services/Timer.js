@@ -29,8 +29,7 @@
  *  @type {Number}
  */
     Timer.remainingTime = Timer.WORKTIME;
-    
-  
+      
 /**
  * @function decrementRemainingTime
  * @desc decrements the time remaining one at a time

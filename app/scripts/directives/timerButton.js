@@ -9,12 +9,13 @@
       link: function(scope, element, attributes) {
         
         // Timer constants (in seconds)
-        scope.WORKTIME = 1;
+        scope.WORKTIME = 3;
         scope.BREAKTIME = 2;
-        scope.LONGBREAKTIME = 3;
+        scope.LONGBREAKTIME = 5;
         
         // Return undefined if no timer set
         var stop = undefined;
+        var i = 0;
         
         // Button Label strings
         var taskLabel = "Start Task";
@@ -26,25 +27,27 @@
         // onBreak is false during work session, true during break
         scope.onBreak = false;
         scope.onLongBreak = false;
-        
+                
         // State counters
-        scope.sessionCounter = 0;
+        var taskCounter = 0;
+        var breakCounter = 0;
         var resetCount = 0;
         
-        scope.tomato = "/app/assets/images/tomato-happy.gif";
-        
+        scope.sessionCounter = 0;
+            
+        //initial values
         scope.remainingTime = scope.WORKTIME;        
         scope.buttonLabel = taskLabel;
 
+        // array of sessions for outputting tomato gif counter images
+        scope.sessions = [];
+        
         var decrementTime = function() {
           scope.remainingTime--;
-          if (scope.remainingTime === 0) {
-            if (scope.onLongBreak) {
-              scope.onLongBreak === false;
-              resetTimer();
-            } else {
-              scope.onBreak ? resetTimer() : startBreak();
-            }
+          if (scope.remainingTime === 0 && !scope.onLongBreak) {      
+            scope.onBreak ? resetTimer() : startBreak();
+          } else if (scope.remainingTime === 0 && scope.onLongBreak) {
+            startTask();
           }
         };
       
@@ -54,11 +57,25 @@
           scope.sessionCounter++;
           
           if (scope.sessionCounter % 4 == 0) {
+            scope.onBreak = false;
             startLongBreak();
           } else {
             startTask();
           }
-
+        };
+        
+        var startBreak = function() {
+          scope.onBreak = true;
+          scope.onLongBreak = false;
+          scope.buttonLabel = breakLabel;
+          scope.remainingTime = scope.BREAKTIME;
+        }; 
+        
+        var startTask = function() {
+          scope.onBreak = false;
+          scope.onLongBreak = false;
+          scope.buttonLabel = taskLabel;
+          scope.remainingTime = scope.WORKTIME;
         };
         
         var stopTimer = function(stopTimer) {
@@ -66,39 +83,30 @@
           stopTimer = undefined;
         };
         
-        var startTask = function () {
-          scope.remainingTime = scope.WORKTIME;
-          scope.buttonLabel = taskLabel;
-          scope.onLongBreak = false;
-          scope.onBreak = false;
-        };
-        
-        var startBreak = function() {
-          scope.remainingTime = scope.BREAKTIME;
-          scope.buttonLabel = breakLabel;
-          scope.onLongBreak = false;
-          scope.onBreak = true;
-        }
-        
         var startLongBreak = function() {
+          scope.onBreak = false;
+          scope.onLongBreak = true;
           scope.buttonLabel = longBreakLabel;
           scope.remainingTime = scope.LONGBREAKTIME;
-          scope.onLongBreak = true;
-          scope.onBreak = false;
         };
-        
-        scope.startTimer = function(time) {
+    
+        scope.startTimer = function(time) {    
+                    
           if (scope.remainingTime != time && stopTimer != undefined) {
             stopTimer(stop);
             resetCount++;
-          }
+            
+            if (!scope.onBreak) {
+              scope.sessions.pop(i);
+            }
+          }      
+      
           scope.remainingTime = time;
           scope.buttonLabel = resetLabel;
           stop = $interval(decrementTime, 1000, time);
           
         };
-        
-                
+    
       }
     };
   }
