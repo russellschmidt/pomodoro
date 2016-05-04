@@ -27,10 +27,6 @@
         var taskCounter = 0;
         var breakCounter = 0;
         var resetCount = 0;
-
-        var ding = new buzz.sound("/sounds/airplane-ding.mp3", {
-          preload:true
-        });
         
         // State tracking variables 
         // onBreak is false during work session, true during break
@@ -46,7 +42,21 @@
         // array of sessions for outputting tomato gif counter images
         scope.sessions = [];
         
-                
+        var ding = new buzz.sound("/assets/sounds/airplane-ding", {
+          formats:  ['mp3'],
+          preload:  true,
+          volume:   50,
+          loop:     false
+        });
+        
+        var shorebirds = new buzz.sound("/assets/sounds/shorebirds", {
+          formats:  ['mp3'],
+          preload:  true,
+          volume:   50,
+          loop:     false
+        });
+          
+              
         var startBreak = function() {
           scope.onBreak = true;
           scope.onLongBreak = false;
@@ -80,20 +90,14 @@
         var decrementSession = function() {
           scope.sessions.pop();
         };
-        
-        scope.$watch(scope.remainingTime, function() {
-          if (scope.remainingTime === 0) {
-            ding.play();
-          }          
-        });
-        
-        
+              
         var resetTimer = function(stop) {
           scope.onBreak = false;
           stopTimer(stop);
           scope.sessionCounter++;
           
           if (scope.sessionCounter % 4 === 0) {
+            shorebirds.play();
             scope.onBreak = false;
             startLongBreak();
             scope.sessionCounter = 0;
@@ -106,14 +110,17 @@
         
         var decrementTime = function() {
           scope.remainingTime--;
-          if (scope.remainingTime === 0 && !scope.onLongBreak) {      
+          if (scope.remainingTime === 0 && !scope.onLongBreak) {  
+            ding.play();
             scope.onBreak ? resetTimer() : startBreak();
           } else if (scope.remainingTime === 0 && scope.onLongBreak) {
+            ding.play();
             startTask();
           }
         };
         
-        scope.startTimer = function(time) {      
+        scope.startTimer = function(time) {           
+          
           if (scope.sessionCounter === 0 && !scope.onBreak && !scope.onLongBreak) {
             incrementSession();
           }

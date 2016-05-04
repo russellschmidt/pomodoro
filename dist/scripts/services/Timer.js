@@ -41,7 +41,6 @@
       console.log(Timer.remainingTime);
     }
     
-
 /**
  * @function startTimer
  * @desc executes when button in view pushed. starts countdown clock.
