@@ -1,12 +1,12 @@
 <div class="timer">
   
-  <div class="work" ng-show="!onBreak" ng-hide="onLongBreak">
+  <div class="work" ng-show="!onBreak && !onLongBreak">
     <h2>{{ remainingTime | timecode }}</h2>
 
     <button ng-click="startTimer(WORKTIME)">{{ buttonLabel }}</button>
   </div>
   
-  <div class="break" ng-show="onBreak">
+  <div class="break" ng-show="onBreak && !onLongBreak">
     <h2>{{ remainingTime | timecode }}</h2>
 
     <button ng-click="startTimer(BREAKTIME)">{{ buttonLabel }}</button>
@@ -18,10 +18,10 @@
     <button ng-click="startTimer(LONGBREAKTIME)">{{ buttonLabel }}</button>
   </div>
   
-  <div class="reset">
+  <div class="reset" ng-repeat="session in sessions">
     <!-- image of a tomato -->
     <!-- one per work+break sesh done so you know how close you are to a long break -->
-    <img ng-src="{{tomato}}" alt="Happy bouncing tomato"/>
+    <img src="https://s3.amazonaws.com/pomodorobucket/tomato.gif" alt="Happy bouncing tomato"/>
   </div>
 
 </div>
