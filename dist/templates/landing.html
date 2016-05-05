@@ -14,9 +14,10 @@
 <div class="tasks">
 
   <form class="task-form" ng-submit="addTask()">
-    <input type="text" ng-model="newTaskText"/>
-    <button type="submit">Add Task</button>
-  
+    <input type="text" ng-model="newTaskText" placeholder="type task here"/>
+    <div>
+      <button type="submit">Add Task</button>
+    </div>
   </form>
   
   <div class="tasks-list">

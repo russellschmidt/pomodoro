@@ -71,3 +71,46 @@ nav div h1, nav div a {
   width: 30px;
   height: 29px;
 }
+
+.tasks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  min-width: 150px;
+  min-height: 100%;
+  background-color: #909090;
+  color: #FFF;
+  padding: 40px 5px;
+}
+
+.tasks input {
+  margin: 5px 25px;
+  position: relative;
+  width: 80%;
+}
+
+.tasks button {
+  margin: 5px 0 5px 50px;
+  background-color: #aa2233;
+  color: #fff;
+}
+
+.tasks ul {
+  list-style-type: none;
+}
+
+.tasks li {
+  text-transform: capitalize;
+  line-height: 1.1rem;
+  margin-top: 4px;
+}
+
+.tasks li:nth-child(even) {
+  color: #ff0;
+}
+
+.tasks li, .tasks button, .tasks input {
+  font-family: monospace;
+  font-size: 1.05rem;
+}
