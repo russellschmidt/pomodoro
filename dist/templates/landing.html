@@ -23,8 +23,10 @@
   <div class="tasks-list">
     <ul id="task-list">
     
-      <li ng-repeat="task in taskArray">{{task.$value}}</li>
+      <li ng-repeat="task in taskArray | orderBy: '-$id' ">{{task.$value }}</li>
     
     </ul>
   </div>
+  
 </div>
+
