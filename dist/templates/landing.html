@@ -1,32 +1,31 @@
-<nav>
-  <div class="links">
+<div class="row">
+  <nav class="col s12">
     <a ui-sref="tomato">Tomato</a>
-  </div>
-  <div class="title">
     <h1>{{ landing.heroTitle }}</h1>
-  </div>
-</nav>
-
-<div>
-  <timer-button></timer-button>
+  </nav>
 </div>
+          
+       
 
-<div class="tasks">
-
-  <form class="task-form" ng-submit="addTask()">
-    <input type="text" ng-model="newTaskText" placeholder="type task here"/>
-    <div>
-      <button type="submit">Add Task</button>
-    </div>
-  </form>
-  
-  <div class="tasks-list">
-    <ul id="task-list">
-    
-      <li ng-repeat="task in taskArray | orderBy: '-$id' ">{{task.$value }}</li>
-    
-    </ul>
+<div class="row">
+  <div class="col s9" id="timer">
+    <timer-button></timer-button>
   </div>
-  
+
+  <div class="tasks col s3">
+    <form class="task-form" ng-submit="addTask()">
+      <input type="text" ng-model="newTaskText" placeholder="type task here"/>
+      <div>
+        <button type="submit">Add Task</button>
+      </div>
+    </form>
+
+    <div class="tasks-list">
+      <ul id="task-list">
+        <li ng-repeat="task in taskArray | orderBy: '-$id' ">{{task.$value }}</li>
+      </ul>
+    </div>
+  </div>
+
 </div>
 

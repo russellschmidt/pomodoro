@@ -18,10 +18,12 @@
     <button ng-click="startTimer(LONGBREAKTIME)">{{ buttonLabel }}</button>
   </div>
   
-  <div class="reset" ng-repeat="session in sessions">
-    <!-- image of a tomato -->
-    <!-- one per work+break sesh done so you know how close you are to a long break -->
-    <img src="https://s3.amazonaws.com/pomodorobucket/tomato.gif" alt="Happy bouncing tomato"/>
+  <div class="tomato-counter">
+    <div class="reset" ng-repeat="session in sessions">
+      <!-- image of a tomato -->
+      <!-- one per work+break sesh done so you know how close you are to a long break -->
+      <img src="https://s3.amazonaws.com/pomodorobucket/tomato.gif" alt="Happy bouncing tomato"/>
+    </div>
   </div>
 
 </div>

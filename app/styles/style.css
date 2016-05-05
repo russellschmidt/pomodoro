@@ -1,117 +1,38 @@
-body {
-  font-family: monospace;
-}
-
-nav {
+/* TOP NAV BAR */
+div nav {
   display: inline-flex;
-  width: 100%;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-nav div {
-  margin: 0;
-  padding: 0;
+div nav h1 {  
+  text-align: right;
+  font-size: 1.4em;
 }
 
-nav div a {
-  text-decoration: none;
-  color: #000;
-}
 
-nav div a:hover {
-  text-decoration: underline;
-  color: #A0A0A0;
-}
-
-nav div h1 {
-  font-size: 1.5rem;
-}
-
-nav div h1, nav div a {
-  vertical-align: top;
-  margin: 0;
-  padding: 5px;
-}
-
-.timer {
-  position: fixed;
-  margin: 0 auto;
-  top: 40%;
+/* TIMER */
+#timer {
+  margin: 20% auto;
   text-align: center;
-  width: 100%;
-}
-
-.timer h2 {
-  font-size: 2rem;
-}
-
-.timer button {
-  border: none;
-  color: #fff;
-  background-color: #A0A0A0;
-  border-radius: 0;
-  font-size: 1.2rem;
-  min-width: 12rem;
-  font-family: monospace;
-}
-
-.reset {
-  margin: 12px 4px;
-  display: inline-flex;
-  flex-flow: row wrap;
+  display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
-  align-items: center;
   align-content: center;
+  align-content: space-around;
 }
 
-.reset img {
-  /* 361 x 351 */
-  width: 30px;
-  height: 29px;
+#timer img {
+  width: 60px;
+  height: 58px;
 }
 
-.tasks {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 25%;
-  min-width: 150px;
-  min-height: 100%;
-  background-color: #302020;
-  color: #FFF;
-  padding: 40px 5px;
-}
-
-.tasks input {
-  margin: 10px 25px;
-  position: relative;
-  width: 80%;
-}
-
-.tasks button {
-  margin-top: 5px;
-  margin-left: 10%;
-  background-color: #aa2233;
-  color: #fff;
-}
-
-.tasks ul {
-  list-style-type: none;
-}
-
-.tasks li {
-  text-transform: capitalize;
-  line-height: 1.1rem;
-  margin-top: 4px;
-}
-
-.tasks li:nth-child(even) {
-  color: #ff0;
-}
-
-.tasks li, .tasks button, .tasks input {
-  font-family: monospace;
-  font-size: 1.05rem;
+.tomato-counter {
+  margin-top: 15px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-content: space-around;
 }
