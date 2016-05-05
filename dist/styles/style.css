@@ -79,19 +79,20 @@ nav div h1, nav div a {
   width: 25%;
   min-width: 150px;
   min-height: 100%;
-  background-color: #909090;
+  background-color: #302020;
   color: #FFF;
   padding: 40px 5px;
 }
 
 .tasks input {
-  margin: 5px 25px;
+  margin: 10px 25px;
   position: relative;
   width: 80%;
 }
 
 .tasks button {
-  margin: 5px 0 5px 50px;
+  margin-top: 5px;
+  margin-left: 10%;
   background-color: #aa2233;
   color: #fff;
 }
