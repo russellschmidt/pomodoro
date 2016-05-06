@@ -9,9 +9,9 @@
       link: function(scope, element, attributes) {
         
         // Timer constants (in seconds)
-        scope.WORKTIME = 2;
-        scope.BREAKTIME = 1;
-        scope.LONGBREAKTIME = 5;
+        scope.WORKTIME = 25 * 60;
+        scope.BREAKTIME = 5 * 60;
+        scope.LONGBREAKTIME = 30 * 60;
         
         // Return undefined if no timer set
         var stop = undefined;
