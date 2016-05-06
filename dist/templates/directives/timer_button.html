@@ -25,9 +25,14 @@
       <img src="https://s3.amazonaws.com/pomodorobucket/tomato.gif" alt="Happy bouncing tomato"/>
     </div>
   </div>
-
+  
   <div id="pause" ng-show="showPause">
     <button ng-click="pauseTimer()">{{ pauseLabel }}</button>
+  </div>
+  
+  <div id="interruption">
+    <p>Interruption count: {{ pauseCounter }}</p>
+    <button ng-click="pauseCounter = 0">Reset Counter</button>
   </div>
   
 </div>

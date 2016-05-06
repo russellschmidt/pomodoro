@@ -9,7 +9,7 @@
       link: function(scope, element, attributes) {
         
         // Timer constants (in seconds)
-        scope.WORKTIME = 60*25;
+        scope.WORKTIME = 2;
         scope.BREAKTIME = 1;
         scope.LONGBREAKTIME = 5;
         
@@ -34,7 +34,9 @@
         scope.onBreak = false;
         scope.onLongBreak = false;
         scope.showPause = false;        
+        
         scope.sessionCounter = 0;
+        scope.pauseCounter = 0;
             
         //initial values
         scope.remainingTime = scope.WORKTIME;        
@@ -81,7 +83,7 @@
         };
         
         var startLongBreak = function() {
-          
+          shorebirds.play();
           scope.onBreak = true;
           scope.onLongBreak = true;
           scope.buttonLabel = longBreakLabel;
@@ -108,10 +110,6 @@
           stopTimer(stop);
           scope.sessionCounter++;
           startTask();
-          
-          if (scope.sessionCounter === 4) {
-            shorebirds.play();
-          }
         };
         
         var decrementTime = function() {
@@ -129,6 +127,7 @@
             stopTimer(stop); 
             isPaused = true;
             scope.pauseLabel = "Resume Timer";
+            scope.pauseCounter++;
           } else {
             scope.startTimer(scope.remainingTime);
             isPaused = false;
