@@ -29,13 +29,23 @@ div nav h1 {
 }
 
 .tomato-counter {
+  
   margin-top: 15px;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-content: center;
   align-content: space-around;
 }
+
+#pause {
+  margin: 10px auto;
+}
+
+#pause button, #timer button {
+  width: 120px;
+}
+
 
 .tasks-list li {
   padding-left: 5px;

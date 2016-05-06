@@ -1,7 +1,6 @@
 (function() {
-  function LandingCtrl($scope, Tasks, Timer) {
-    this.heroTitle = "Pomodoro Timer";
-    this.timer = Timer;    
+  function LandingCtrl($scope, Tasks) {
+    this.heroTitle = "Pomodoro Timer";   
     
     // bind $scope to firebase data
     $scope.taskArray = Tasks.all
@@ -14,5 +13,5 @@
   
   angular 
     .module('pomodoro')
-    .controller('LandingCtrl', ['$scope', 'Tasks', 'Timer', LandingCtrl]);
+    .controller('LandingCtrl', ['$scope', 'Tasks', LandingCtrl]);
 })();
